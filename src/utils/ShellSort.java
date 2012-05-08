@@ -15,7 +15,7 @@ public class ShellSort extends Sorter{
         int[] d =  { 1, 4, 10, 23, 57, 145 , 356, 911};
         while (d[m] < b) ++m;
         while (--m >= 0){
-            k = d[m];
+            k = d[m];                // шаг
             for (i=k; i<b; i++){     // k-сортировка
                 j=i;
                 h=a[i];
@@ -24,7 +24,7 @@ public class ShellSort extends Sorter{
                     a[j]=a[j-k];
                     j =  j-k;
                 }
-                a[j] = h;
+               
                 swap();
             }            
         }
