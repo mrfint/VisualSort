@@ -12,7 +12,7 @@ public class InsertSort extends Sorter{
     public void sort(int[] sa) {       
         initA(sa);
         int min;
-        for(int i=0; i<a.length-1; i++){
+        for(int i=0; i<a.length; i++){
             min=i;
             for(int j=i+1; j<a.length; j++){
                 compareCount++;
