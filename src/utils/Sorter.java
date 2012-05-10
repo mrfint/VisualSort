@@ -9,7 +9,7 @@ import view.gRect;
 import view.xPanel;
 
 public abstract class Sorter implements Runnable{
-    protected final int DELAY = 20;
+    protected final int DELAY = 3;
     protected int[] a;
     protected xPanel xpan;
     protected GistPanel gp = null;
@@ -43,10 +43,16 @@ public abstract class Sorter implements Runnable{
          gr1.setHight(a[i]); gr1.revalidate();
          gr2.setHight(a[j]); gr2.revalidate();
          
-         swap();
+         swapCount++;
+         pause();
     }
-    protected void swap(){
-        swapCount++;
+    protected synchronized boolean compareMore(int a, int b){     
+         compareCount++;
+         pause();
+         return (a-b)>0;
+    }
+    protected void pause(){
+        
         ((CaptPanel)xpan.getComponent(0)).repaint(swapCount, compareCount);
         if(xpan!=null){
             try {

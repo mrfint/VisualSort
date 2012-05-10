@@ -16,7 +16,7 @@ public class InsertSort extends Sorter{
             min=i;
             for(int j=i+1; j<a.length; j++){
                 compareCount++;
-                if( a[j]< a[min])      min=j;
+                if( compareMore(a[min], a[j]) )      min=j;
             }
             if (min!=i) {  
                 swap(i,min);

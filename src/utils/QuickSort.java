@@ -22,20 +22,16 @@ public class QuickSort extends Sorter{
         x = items[(left + right)/2];
         
         do {
-                while( (items[i] < x ) && (i < right)) {
-                    compareCount++;
+                while( (compareMore(x, items[i]) ) && (i < right)) {
                     i++;
                 }
-                while( (x < items[j] ) && (j > left)){
-                    compareCount++;
+                while( (compareMore(items[j], x) ) && (j > left)){
                     j--;
                 }
-
-                    if (i <= j) {
-                        swap(i,j);
-                        i++; j--;
-                        
-                    }
+                if (i <= j) {
+                    swap(i,j);
+                    i++; j--;
+                }
         } while (i <= j);
         
         if(left < j)  qs(items, left, j);

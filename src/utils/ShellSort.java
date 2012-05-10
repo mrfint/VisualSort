@@ -23,8 +23,7 @@ public class ShellSort extends Sorter{
             for (i=0; i<b; i++){     
                 min = i;
                 for ( j = i+k; j < b;j+=k) {
-                    compareCount++;
-                    if( a[j]< a[min])      min=j;
+                    if( compareMore(a[min], a[j]) )      min=j;
                 }
                  
                 if (min!=i) {  

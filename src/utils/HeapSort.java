@@ -11,10 +11,9 @@ public class HeapSort extends Sorter {
     
     @Override
     public void sort(int[] sa) {       
-        a=sa;
+        initA(sa);
         n=a.length;
         heapsort();
-      
     }
     
     private void heapsort()
@@ -22,7 +21,7 @@ public class HeapSort extends Sorter {
         buildheap();
         while (n>1)
         {
-            n--;
+            --n;
             swap (0, n);
             downheap (0);
         } 
@@ -40,8 +39,7 @@ public class HeapSort extends Sorter {
         while (w<n)
         {
             if (w+1<n){
-                compareCount++;
-                if (a[w+1]>a[w]) w++;
+                if (compareMore(a[w+1],a[w])) w++;
             }
             // w is the descendant of v with maximum label
             compareCount++;

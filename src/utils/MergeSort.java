@@ -7,7 +7,7 @@ import view.MainFrame;
 import view.gRect;
 import view.xPanel;
 
-public class MergeSort extends Sorter{
+public class MergeSort extends Sorter {
 
     private int[] tmp;
     @Override
@@ -38,8 +38,7 @@ public class MergeSort extends Sorter{
 		//here we have 2 sorted sub-arrays - [start - end_1st_part] and [start_2nd_part - end]
 		//and we have to merge them.
 		while ((i <= end_1st_part) | (j <= end_2nd_part)) {
-                    compareCount++;
-                    if (j > end_2nd_part || (i <= end_1st_part && a[i] < a[j])){
+                    if (j > end_2nd_part || (i <= end_1st_part && compareMore(a[j], a[i]))){
 				tmp[ind] = a[i];
 				i++;
 			}
@@ -55,18 +54,19 @@ public class MergeSort extends Sorter{
 		for (i = indexFrom; i <= indexTo; i++){
 			a[i] = tmp[i];
 		}
+                
 		swap(indexFrom,indexTo);
 	}
     
     @Override
     protected synchronized void swap(int indexFrom, int indexTo) {
-         
+         swapCount++;
          for (int i = indexFrom; i <= indexTo; i++){
              gRect gr1 = (gRect)gp.getComponent(i);
              gr1.setHight(a[i]); gr1.revalidate();
 	 }
          
-         swap();
+         pause();
     }
 
 }
