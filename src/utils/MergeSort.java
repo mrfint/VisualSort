@@ -4,6 +4,7 @@ package utils;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import view.MainFrame;
+import view.gRect;
 import view.xPanel;
 
 public class MergeSort extends Sorter{
@@ -54,7 +55,18 @@ public class MergeSort extends Sorter{
 		for (i = indexFrom; i <= indexTo; i++){
 			a[i] = tmp[i];
 		}
-		swap();
+		swap(indexFrom,indexTo);
 	}
+    
+    @Override
+    protected synchronized void swap(int indexFrom, int indexTo) {
+         
+         for (int i = indexFrom; i <= indexTo; i++){
+             gRect gr1 = (gRect)gp.getComponent(i);
+             gr1.setHight(a[i]); gr1.revalidate();
+	 }
+         
+         swap();
+    }
 
 }

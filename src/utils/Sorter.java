@@ -9,10 +9,10 @@ import view.gRect;
 import view.xPanel;
 
 public abstract class Sorter implements Runnable{
-    protected final int DELAY = 10;
+    protected final int DELAY = 20;
     protected int[] a;
     protected xPanel xpan;
-    private GistPanel gp = null;
+    protected GistPanel gp = null;
     protected int swapCount;
     protected int compareCount;
     
